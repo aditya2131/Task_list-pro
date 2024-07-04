@@ -31,8 +31,8 @@ You need to have Node.js and npm installed on your machine. You can download the
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/todo-list-app.git
-    cd todo-list-app
+    git clone https://github.com/aditya2131/Todo-list-application.git
+    cd Todo-list-application
     ```
 
 2. **Install the dependencies:**
@@ -69,7 +69,7 @@ You need to have Node.js and npm installed on your machine. You can download the
 
 ## Contact
 
-For any inquiries or feedback, please contact me at: aditya@example.com
+For any inquiries or feedback, please contact me at: adityamishra.me@gmail.com
 
 ## Acknowledgements
 
