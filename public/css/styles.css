@@ -1,0 +1,243 @@
+html {
+  background-color: #E4E9FD;
+  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  min-height: 1000px;
+  font-family: 'helvetica neue';
+}
+
+h1 {
+  color: #fff;
+  padding: 10px;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #A683E3;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+form {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #A683E3;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #A683E3;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+
+/* styles for about navigation page */
+
+nav {
+  text-align: center;
+  margin: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #A683E3;
+}
+
+nav ul li a:hover {
+  color: #502F82;
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #A683E3;
+}
+
+.social-links a:hover {
+  color: #502F82;
+}
+
+/* buttons style */
+.icon-button {
+  background:none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+  color: #A683E3;
+}
+
+.icon-button i:hover {
+  color: #502F82;
+}
+
+#plus {
+  background-color: #502F82;
+}
+
+.connect{
+  font-size: 30px;
+
+}
+
+
+
+
+
+
+/* Add these styles to styles.css */
+#about {
+  text-align: center;
+  padding: 20px;
+}
+
+#about h1 {
+  margin-bottom: 20px;
+  color: #502F82;
+}
+
+#about p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links h2 {
+  margin-bottom: 10px;
+  color: #502F82;
+}
+
+.social-links a {
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #A683E3;
+  font-size: 20px;
+}
+
+.social-links a i {
+  margin-right: 10px;
+}
+
+.social-links a:hover {
+  color: #502F82;
+}
+
+.social-links a i.fab {
+  font-size: 24px;
+}
+
+
+/* Add these styles to styles.css */
+footer {
+  background-color: #A683E3;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
