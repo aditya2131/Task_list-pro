@@ -1,0 +1,18 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1>Edit Item</h1>
+</div>
+
+<div class="box">
+  <form class="item" action="/edit" method="post">
+    <input type="text" name="newItem" value="<%= itemToEdit %>" autocomplete="off">
+    <input type="hidden" name="index" value="<%= itemIndex %>">
+    <input type="hidden" name="list" value="<%= listTitle %>">
+    <button type="submit" class="icon-button">
+     <i class="fa-solid fa-upload"></i>
+   </button>
+  </form>
+</div>
+
+<%- include("footer") -%>
