@@ -1,6 +1,6 @@
-# Todo List Application
+# Task_list-Pro
 
-This is a simple Todo List application built using Node.js, Express.js, EJS, HTML, and CSS. The application allows users to add, edit, and delete tasks. Additionally, there's an About page with information about the developer and a contact email.
+This is a simple Task List application built using Node.js, Express.js, EJS, HTML, and CSS. The application allows users to add, edit, and delete tasks. Additionally, there's an About page with information about the developer and a contact email.
 
 ## Features
 
