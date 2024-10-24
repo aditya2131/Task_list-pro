@@ -1,26 +1,28 @@
 {
-  "name": "todolist-v1",
+  "name": "task_list-pro",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "A simple To-Do list application using Node.js, Express, and EJS.",
+  "description": "A simple todo list app with dynamic lists.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js"
   },
-  "author": "Aditya Mishra",
-=======
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "aditya mishra",
->>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.2"
-  }
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "todo",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Aditya Mishra",
+  "license": "ISC"
 }
