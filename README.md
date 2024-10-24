@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Todo List Application
 
 This is a simple Todo List application built using Node.js, Express.js, EJS, HTML, and CSS. The application allows users to add, edit, and delete tasks. Additionally, there's an About page with information about the developer and a contact email.
+=======
+# Task_list-Pro
+
+This is a simple Task List application built using Node.js, Express.js, EJS, HTML, and CSS. The application allows users to add, edit, and delete tasks. Additionally, there's an About page with information about the developer and a contact email.
+>>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
 
 ## Features
 
@@ -31,8 +37,13 @@ You need to have Node.js and npm installed on your machine. You can download the
 1. **Clone the repository:**
 
     ```sh
+<<<<<<< HEAD
     git clone https://github.com/yourusername/todo-list-app.git
     cd todo-list-app
+=======
+    git clone https://github.com/aditya2131/Todo-list-application.git
+    cd Todo-list-application
+>>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
     ```
 
 2. **Install the dependencies:**
@@ -69,7 +80,11 @@ You need to have Node.js and npm installed on your machine. You can download the
 
 ## Contact
 
+<<<<<<< HEAD
 For any inquiries or feedback, please contact me at: aditya@example.com
+=======
+For any inquiries or feedback, please contact me at: adityamishra.me@gmail.com
+>>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
 
 ## Acknowledgements
 

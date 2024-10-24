@@ -1,6 +1,7 @@
 {
   "name": "todolist-v1",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "A simple To-Do list application using Node.js, Express, and EJS.",
   "main": "app.js",
   "scripts": {
@@ -8,6 +9,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aditya Mishra",
+=======
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aditya mishra",
+>>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",

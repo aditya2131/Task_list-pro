@@ -27,5 +27,8 @@ build/
 
 # Local Netlify folder
 .netlify
+<<<<<<< HEAD
 
 .vercel
+=======
+>>>>>>> 7b41f386aac875c9505e9b2ece17f815dfa9415c
