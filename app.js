@@ -1,89 +1,92 @@
-// app.js
-require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const _ = require('lodash');
-
+// Required dependencies
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
+const items = ["Buy Food", "Cook Food", "Eat Food"];
+const workItems = [];
+
+// Set EJS as the view engine
+app.set("view engine", "ejs");
+
+// Set up body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-// Connect to MongoDB using the connection string from the .env file
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log("Connected to MongoDB successfully.");
-}).catch((err) => {
-  console.error("MongoDB connection error:", err);
+// Route for Home page (List)
+app.get("/", (req, res) => {
+  res.render("list", { listTitle: "Today", newListItems: items });
 });
 
-// Define a schema and model for your items
-const itemsSchema = new mongoose.Schema({
-  name: String
+// Route for Work page
+app.get("/work", (req, res) => {
+  res.render("list", { listTitle: "Work List", newListItems: workItems });
 });
 
-const Item = mongoose.model("Item", itemsSchema);
+// Route for About page
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 
-// Default items
-const defaultItems = [
-  new Item({ name: "Welcome to your To-Do List!" }),
-  new Item({ name: "Hit the + button to add a new item." }),
-  new Item({ name: "<-- Hit this to delete an item." })
-];
+// Route to handle adding items (Home page)
+app.post("/", (req, res) => {
+  const item = req.body.newItem;
 
-// Get route for the home page
-app.get('/', async (req, res) => {
-  try {
-    const foundItems = await Item.find({});
-    
-    if (foundItems.length === 0) {
-      // If no items found, insert default items
-      await Item.insertMany(defaultItems);
-      console.log("Default items added to the database.");
-      res.redirect('/');
-    } else {
-      res.render('index', { items: foundItems });
-    }
-  } catch (err) {
-    console.error("Error fetching items:", err);
-    res.status(500).send("Internal Server Error");
+  if (req.body.list === "Work List") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
+    items.push(item);
+    res.redirect("/");
   }
 });
 
-// Post route to add a new item
-app.post('/', async (req, res) => {
-  const itemName = req.body.newItem;
-  const newItem = new Item({ name: itemName });
+// Route to handle adding items (Work page)
+app.post("/work", (req, res) => {
+  const item = req.body.newItem;
+  workItems.push(item);
+  res.redirect("/work");
+});
 
-  try {
-    await newItem.save();
-    res.redirect('/');
-  } catch (err) {
-    console.error("Error adding new item:", err);
-    res.status(500).send("Internal Server Error");
+// Route to delete items
+app.post("/delete", (req, res) => {
+  const index = req.body.index;
+  const list = req.body.list;
+
+  if (list === "Work List") {
+    workItems.splice(index, 1);
+    res.redirect("/work");
+  } else {
+    items.splice(index, 1);
+    res.redirect("/");
   }
 });
 
-// Post route to delete an item
-app.post('/delete', async (req, res) => {
-  const checkedItemId = req.body.checkbox;
+// Route to edit items
+app.get("/edit", (req, res) => {
+  const index = req.query.index;
+  const listTitle = req.query.list === "Work List" ? "Work List" : "Today";
+  const itemToEdit = listTitle === "Work List" ? workItems[index] : items[index];
+  
+  res.render("edit", { itemToEdit: itemToEdit, itemIndex: index, listTitle: listTitle });
+});
 
-  try {
-    await Item.findByIdAndRemove(checkedItemId);
-    console.log("Successfully deleted checked item.");
-    res.redirect('/');
-  } catch (err) {
-    console.error("Error deleting item:", err);
-    res.status(500).send("Internal Server Error");
+// Route to handle edit form submission
+app.post("/edit", (req, res) => {
+  const newItem = req.body.newItem;
+  const index = req.body.index;
+  const list = req.body.list;
+
+  if (list === "Work List") {
+    workItems[index] = newItem;
+    res.redirect("/work");
+  } else {
+    items[index] = newItem;
+    res.redirect("/");
   }
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+app.listen(3000, () => {
+  console.log("Server is running on port 3000.");
 });
