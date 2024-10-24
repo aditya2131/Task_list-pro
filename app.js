@@ -3,12 +3,16 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const app = express();
+require('dotenv').config(); // To use environment variables from .env file
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// Connect to MongoDB using the connection string from the .env file
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB successfully'))
+    .catch(err => console.log('MongoDB connection error:', err));
 
 const itemsSchema = {
     name: String
@@ -60,7 +64,6 @@ app.get('/:customListName', function (req, res) {
     List.findOne({ name: customListName }, function (err, foundList) {
         if (!err) {
             if (!foundList) {
-                // Create a new list
                 const list = new List({
                     name: customListName,
                     items: defaultItems
@@ -68,7 +71,6 @@ app.get('/:customListName', function (req, res) {
                 list.save();
                 res.redirect('/' + customListName);
             } else {
-                // Show an existing list
                 res.render('list', { listTitle: foundList.name, newListItems: foundList.items });
             }
         }
@@ -119,6 +121,9 @@ app.get('/about', function (req, res) {
     res.render('about');
 });
 
-app.listen(3000, function () {
-    console.log('Server started on port 3000');
+// Use the PORT environment variable for the server port
+const port = process.env.PORT || 3000;
+
+app.listen(port, function () {
+    console.log(`Server started on port ${port}`);
 });
